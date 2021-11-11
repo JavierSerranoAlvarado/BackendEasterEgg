@@ -14,5 +14,7 @@ public interface PublicacionesRepository extends PagingAndSortingRepository<Publ
     @Query(value = "SELECT * FROM usuario_publicaciones u WHERE u.id_usuarios = ?1" , nativeQuery = true)
     List<Publicaciones> encontrarPorUsuario(Integer id);
 
+    List<Publicaciones> findByUsuarioIdUsuarios(Integer id);
+
     /*List<Publicaciones> findByUsuario(Integer id); */
 }

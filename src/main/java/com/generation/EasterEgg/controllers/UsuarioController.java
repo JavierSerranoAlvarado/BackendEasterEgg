@@ -1,11 +1,15 @@
 package com.generation.EasterEgg.controllers;
 
+import com.generation.EasterEgg.models.Publicaciones;
 import com.generation.EasterEgg.models.Usuario;
 import com.generation.EasterEgg.models.UsuarioDatos;
 import com.generation.EasterEgg.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -72,9 +76,9 @@ public class UsuarioController {
         userService.delete( id );
     }
 
-    /* @GetMapping("user/loging")
-    public boolean iniciaSesion(@PathVariable String correo, @PathVariable String password){
-        return userService.logear(correo, password);
-    } */
+    @PostMapping("/user/posts/all")
+    public List<Usuario> getAllPost(){
+        return userService.getAll();
+    }
 
 }

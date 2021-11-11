@@ -128,4 +128,18 @@ public class UsuarioDatos {
     public void setNacimiento(String nacimiento) {
         this.nacimiento = nacimiento;
     }
+
+    @Override
+    public String toString() {
+        return "UsuarioDatos{" +
+                "idUsuariosDatos=" + idUsuariosDatos +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", sexo='" + sexo + '\'' +
+                ", nacimiento='" + nacimiento + '\'' +
+                ", gamerTag='" + gamerTag + '\'' +
+                ", miembroDesde='" + miembroDesde + '\'' +
+                ", imgPerfil='" + imgPerfil + '\'' +
+                '}';
+    }
 }

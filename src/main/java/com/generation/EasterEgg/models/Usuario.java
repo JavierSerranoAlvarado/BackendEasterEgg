@@ -42,6 +42,8 @@ public class Usuario {
 
 
 
+
+
     public Integer getIdUsuarios() {
         return idUsuarios;
     }
@@ -80,5 +82,16 @@ public class Usuario {
 
     public void setUsuarioDatos(UsuarioDatos usuarioDatos) {
         this.usuarioDatos = usuarioDatos;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "idUsuarios=" + idUsuarios +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", publicaciones=" + publicaciones +
+                ", usuarioDatos=" + usuarioDatos +
+                '}';
     }
 }

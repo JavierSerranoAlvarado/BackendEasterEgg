@@ -1,5 +1,8 @@
 package com.generation.EasterEgg.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.sql.Blob;
 
@@ -24,9 +27,11 @@ public class Publicaciones {
     @JoinColumn(name = "id_usuarios", referencedColumnName = "id_usuarios")
     private Usuario usuario;
 
-   /*public Usuario getUsuario() {
+    @JsonIgnore
+    public Usuario getUsuario() {
         return usuario;
-    }*/
+    }
+    @JsonProperty
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
@@ -73,5 +78,15 @@ public class Publicaciones {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    @Override
+    public String toString() {
+        return "Publicaciones{" +
+                "idPublicaciones=" + idPublicaciones +
+                ", imagen='" + imagen + '\'' +
+                ", titulo='" + titulo + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                '}';
     }
 }

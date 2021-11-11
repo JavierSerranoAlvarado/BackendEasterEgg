@@ -8,7 +8,7 @@ import java.util.List;
 public interface PublicacionesService {
     Publicaciones getPost(Integer id );
 
-    List<Publicaciones> getAllPost(Integer id );
+    List<Publicaciones> getPostsFromOneUser(Integer id);
 
     Publicaciones save(Publicaciones post );
 

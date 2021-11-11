@@ -23,10 +23,10 @@ public class PublicacionesServiceImpl implements PublicacionesService{
         return post.orElse(null);
     }
 
+
     @Override
-    public List<Publicaciones> getAllPost(Integer id) {
-        List<Publicaciones> allPost = publicacionesRepository.encontrarPorUsuario(id);
-        return allPost;
+    public List<Publicaciones> getPostsFromOneUser(Integer id) {
+        return publicacionesRepository.findByUsuarioIdUsuarios(id);
     }
 
     @Override

@@ -23,9 +23,10 @@ public class PublicacionesController {
         return publicacionesService.getPost(id);
     }
 
+
     @PostMapping("/post/all/{id}")
-    public List<Publicaciones> getAllPostFromUser(@PathVariable Integer id){
-        return publicacionesService.getAllPost(id);
+    public List<Publicaciones> getAllPost(@PathVariable Integer id){
+        return publicacionesService.getPostsFromOneUser(id);
     }
 
     @PostMapping("/post")
