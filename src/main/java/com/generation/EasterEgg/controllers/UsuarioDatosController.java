@@ -5,7 +5,6 @@ import com.generation.EasterEgg.service.DatosService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/datos")
 public class UsuarioDatosController {
     private DatosService datosService;
 
@@ -13,12 +12,12 @@ public class UsuarioDatosController {
         this.datosService = datosService;
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/datos/{id}")
     public UsuarioDatos getDatos(@PathVariable Integer id){
         return datosService.getDatos(id);
     }
 
-    @PostMapping("/")
+    @PostMapping("/datos/")
     public UsuarioDatos postDatos(@RequestBody UsuarioDatos newDatos){
         return datosService.saveDatos(newDatos);
     }
