@@ -24,8 +24,8 @@ public class PublicacionesController {
     }
 
 
-    @PostMapping("/post/all/{id}")
-    public List<Publicaciones> getAllPost(@PathVariable Integer id){
+    @PostMapping("/post/all")
+    public List<Publicaciones> getAllPost(@RequestParam Integer id){
         return publicacionesService.getPostsFromOneUser(id);
     }
 
@@ -35,8 +35,8 @@ public class PublicacionesController {
     }
 
 
-    @PutMapping( "/post/{id}" )
-    public Publicaciones updatePost( @RequestBody Publicaciones post, @PathVariable Integer id )
+    @PostMapping( "/post/edit" )
+    public Publicaciones updatePost( @RequestBody Publicaciones post, @RequestParam Integer id )
     {
         return publicacionesService.updatePost( post, id );
     }

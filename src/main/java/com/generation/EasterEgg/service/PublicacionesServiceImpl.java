@@ -44,9 +44,15 @@ public class PublicacionesServiceImpl implements PublicacionesService{
     @Override
     public Publicaciones updatePost(Publicaciones post, Integer id) {
         return publicacionesRepository.findById(id).map(oldPost -> {
-            oldPost.setDescripcion(post.getDescripcion());
-            oldPost.setTitulo(post.getTitulo());
-            oldPost.setImagen(post.getImagen());
+            if(post.getTitulo() != ""){
+                oldPost.setTitulo(post.getTitulo());
+            }
+            if(post.getDescripcion() != ""){
+                oldPost.setDescripcion(post.getDescripcion());
+            }
+            if(post.getImagen() != ""){
+                oldPost.setImagen(post.getImagen());
+            }
             return publicacionesRepository.save(oldPost);
         }).orElse(null);
     };

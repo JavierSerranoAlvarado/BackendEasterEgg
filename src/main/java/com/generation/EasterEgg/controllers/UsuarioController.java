@@ -23,8 +23,8 @@ public class UsuarioController {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
-    @PostMapping( "/user/{id}" )
-    public Usuario getUser(@PathVariable Integer id) {
+    @GetMapping( "/user/datos" )
+    public Usuario getUser(@RequestParam int id) {
         return userService.getUsuario(id);
     }
 
