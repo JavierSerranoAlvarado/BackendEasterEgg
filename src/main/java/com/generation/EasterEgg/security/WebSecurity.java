@@ -53,6 +53,10 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, LOGIN_URL).permitAll()
                 .antMatchers(HttpMethod.POST, "/post").permitAll()
                 .antMatchers(HttpMethod.POST, "/user").permitAll()
+                // Allow GET requests to the root URL without authentication
+                .antMatchers(HttpMethod.GET, "/").permitAll()
+                // Permit error page to avoid Whitelabel error page when unauthenticated
+                .antMatchers(HttpMethod.GET, "/error").permitAll()
                 .anyRequest().authenticated().and()
                 .addFilter(new JWTAuthenticationFilter(authenticationManager()))
                 .addFilter(new JWTAuthorizationFilter(authenticationManager()));
