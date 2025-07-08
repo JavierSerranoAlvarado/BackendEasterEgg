@@ -15,4 +15,6 @@ public interface PublicacionesService {
     void delete( Integer id );
 
     Publicaciones updatePost(Publicaciones post, Integer id);
+
+    List<Publicaciones> getAllPosts(int page, int size);
 }

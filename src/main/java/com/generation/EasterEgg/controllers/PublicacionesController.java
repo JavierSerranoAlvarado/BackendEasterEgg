@@ -29,6 +29,12 @@ public class PublicacionesController {
         return publicacionesService.getPostsFromOneUser(id);
     }
 
+    @GetMapping("/posts/all")
+    public List<Publicaciones> getAllPosts(@RequestParam(defaultValue = "0") int page,
+                                           @RequestParam(defaultValue = "5") int size) {
+        return publicacionesService.getAllPosts(page, size);
+    }
+
     @PostMapping("/post")
     public Publicaciones putPost(@RequestBody Publicaciones post){
         return publicacionesService.save(post);
