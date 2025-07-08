@@ -2,6 +2,9 @@ package com.generation.EasterEgg.service;
 
 import com.generation.EasterEgg.models.Publicaciones;
 import com.generation.EasterEgg.repository.PublicacionesRepository;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -56,6 +59,12 @@ public class PublicacionesServiceImpl implements PublicacionesService{
             return publicacionesRepository.save(oldPost);
         }).orElse(null);
     };
+
+    @Override
+    public List<Publicaciones> getAllPosts(int page, int size) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by("idPublicaciones").descending());
+        return publicacionesRepository.findAll(pageable).getContent();
+    }
 
 
 }
